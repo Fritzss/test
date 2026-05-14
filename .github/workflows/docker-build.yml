@@ -1,4 +1,4 @@
-name: Build and Release Docker image
+name: Build and Release Playground image
 
 on:
   workflow_dispatch:
