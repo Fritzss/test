@@ -1,0 +1,20 @@
+FROM alpine:latest AS runtime
+
+USER root
+
+RUN apk add --no-cache nginx
+
+# Копируем модульную конфигурацию
+COPY nginx/mime.types /etc/nginx/mime.types
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/conf.d/ /etc/nginx/conf.d/
+
+# Создаем структуру и копируем артефакты
+RUN mkdir -p /var/www/public
+COPY --from=vrl-playground-builder /build/vector/lib/vector-vrl/web-playground/public /var/www/public
+
+# Настраиваем права
+
+EXPOSE 8082
+
+CMD ["nginx", "-g", "daemon off;"]
