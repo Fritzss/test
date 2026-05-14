@@ -1,0 +1,17 @@
+types {
+    # Стандартные типы
+    text/html                             html htm shtml;
+    text/css                              css;
+    image/gif                             gif;
+    image/jpeg                            jpeg jpg;
+    application/javascript                js;
+    application/json                      json;
+    application/xml                       xml;
+    
+    # WebAssembly (КРИТИЧЕСКИ ВАЖНО)
+    application/wasm                      wasm;
+    
+    # Сжатые ресурсы
+    application/gzip                      gz;
+    application/octet-stream              wasm.gz br;
+}
